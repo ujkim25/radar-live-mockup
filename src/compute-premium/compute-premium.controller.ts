@@ -9,6 +9,7 @@ export class ComputePremiumController {
 
     @Post()
     computePremium(@Body() radarLiveRequest: RadarLiveRequest): RadarLiveResponse {
+        console.log("inside mockup")
         return this.computePremiumService.computePremium(radarLiveRequest);
     }
 }
