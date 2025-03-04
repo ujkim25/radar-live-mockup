@@ -12,7 +12,7 @@ export class ComputePremiumService {
         const pd_premium= Math.round(radarLiveRequest.prm_pd_limit * 0.0012);
         const medpay_premium= Math.round(radarLiveRequest.prm_medpay_limit * 0.0012);
         const gross_premium= comp_premium+coll_premium+loss_premium+bi_premium+pd_premium+medpay_premium;
-        const net_premium= gross_premium*1.05;
+        const net_premium= Math.round(gross_premium*1.05);
 
         return {
             prm_comp_premium: comp_premium,
