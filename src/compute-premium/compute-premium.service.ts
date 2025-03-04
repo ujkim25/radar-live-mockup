@@ -5,12 +5,12 @@ import { RadarLiveRequest } from './radar-live-request.dto';
 @Injectable()
 export class ComputePremiumService {
     computePremium(radarLiveRequest: RadarLiveRequest): RadarLiveResponse {
-        const comp_premium= radarLiveRequest.prm_comp_ded * radarLiveRequest.prm_comp_limit * 0.0012;
-        const coll_premium= radarLiveRequest.prm_coll_ded * radarLiveRequest.prm_coll_limit * 0.0012;
-        const loss_premium= radarLiveRequest.prm_loss_limit * 0.0012;
-        const bi_premium= radarLiveRequest.prm_bi_limit * 0.0012;
-        const pd_premium= radarLiveRequest.prm_pd_limit * 0.0012;
-        const medpay_premium= radarLiveRequest.prm_medpay_limit * 0.0012;
+        const comp_premium= Math.round(radarLiveRequest.prm_comp_ded * radarLiveRequest.prm_comp_limit * 0.0012);
+        const coll_premium= Math.round(radarLiveRequest.prm_coll_ded * radarLiveRequest.prm_coll_limit * 0.0012);
+        const loss_premium= Math.round(radarLiveRequest.prm_loss_limit * 0.0012);
+        const bi_premium= Math.round(radarLiveRequest.prm_bi_limit * 0.0012);
+        const pd_premium= Math.round(radarLiveRequest.prm_pd_limit * 0.0012);
+        const medpay_premium= Math.round(radarLiveRequest.prm_medpay_limit * 0.0012);
         const gross_premium= comp_premium+coll_premium+loss_premium+bi_premium+pd_premium+medpay_premium;
         const net_premium= gross_premium*1.05;
 
